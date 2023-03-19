@@ -1,0 +1,51 @@
+:root {
+	--primary-color: #000000;
+	--white: #ffffff;
+}
+
+/* body */
+body {
+	background-color: var(--primary-color);
+}
+
+/* navbar */ 
+nav {
+	font-family: 'Rubik Iso', cursive;
+	color: white;
+}
+
+.nav-link {
+	color: white;
+}
+
+.navbar-brand {
+	font-family: 'Rubik Iso', cursive;
+	color: white;
+	font-size: 60px;
+	margin: 5%;
+}
+
+.navbar-img {
+	width: 90px;
+	height: 90px;
+	padding: 15px;
+	background-color: white;
+	border-radius:50%;
+}
+
+/* home */
+.home-header-img-container {
+	display: block;
+	margin: 3% auto auto 5%;
+}
+
+.home-header-greeting {
+	color: var(--white);
+}
+
+.home-header-img {
+	width: 200px;
+	height: 200px;
+	border: 2px solid grey;
+}
+

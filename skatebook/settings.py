@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4h6pq=!^$6*&!+emqa(93txh4id+0l%3%+om3up$(lg=6hguup'
+SECRET_KEY = 'django-insecure-%2bo0ww+!27h2ezslxgjx3w@x^1mpc-az7u#bpr41i1c2jqe4^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'skatebooks',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'skatebooks.User'
 
 ROOT_URLCONF = 'skatebook.urls'
 
@@ -117,6 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/img/'
+
+STATICFILES_DIRS = [
+        BASE_DIR / 'skatebooks/static'
+]
+
+MEDIA_ROOT = BASE_DIR / 'skatebooks/static/skatebooks'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

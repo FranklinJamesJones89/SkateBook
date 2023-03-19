@@ -109,6 +109,7 @@ nav {
 
 .feed-created {
 	color: var(--grey);
+	font-size: 12px;
 }
 
 .feed-img {
@@ -121,10 +122,16 @@ nav {
 	display: block;
 	text-decoration: none;
 	color: var(--grey);
+	font-size: 14px;
+}
+
+.feed-spot-description {
+	font-size: 14px;
 }
 
 .feed-fuck12 {
 	color: var(--grey);
+	font-size: 14px;
 }
 
 /* recent */

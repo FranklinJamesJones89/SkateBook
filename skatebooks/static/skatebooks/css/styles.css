@@ -1,6 +1,7 @@
 :root {
 	--primary-color: #000000;
 	--white: #ffffff;
+	--grey: #808080;
 }
 
 /* body */
@@ -48,4 +49,67 @@ nav {
 	height: 200px;
 	border: 2px solid grey;
 }
+
+/* Feed */
+.posts {
+	margin-left: 2%;
+}
+
+.feed-wrapper {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	margin:5% auto auto 5%;
+}
+
+.feed-user-avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.feed-container {
+	color: var(--white);
+}
+
+.feed-message-prompt {
+	margin: 1%;
+}
+
+.feed-hr {
+	width: 50%;
+}
+
+.feed-comment-icon {
+	color: var(--white);
+	margin: 1%;
+}
+
+.feed-comment-link {
+	color: white;
+	margin: 2%;
+	text-decoration: none;
+}
+
+.feed-posts {
+	margin-top: 10%;
+}
+
+.feed-img {
+	width: 500px;
+	height: 400px;
+}
+
+.feed-location {
+	color: var(--grey);
+}
+
+.feed-fuck12 {
+	color: red;
+}
+
+/* recent */
+.recent-container {
+	color: var(--white);
+}
+
 

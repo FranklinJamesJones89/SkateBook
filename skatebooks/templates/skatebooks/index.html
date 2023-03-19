@@ -21,13 +21,6 @@
   <div class="feed-wrapper">
     {% for spot in spots %}
     <div class="feed-container">
-      <hr class="feed-hr">
-      <p class="posts">Posts</p> 
-      <span><img class="feed-user-avatar" src={{ user.avatar.url }}></span>
-      <span class="feed-message-prompt">Write something about this spot</span>
-      <hr class="feed-hr">
-      <a class="feed-comment-link" href="#"><i class="fa-regular fa-pen-to-square feed-comment-icon"></i>Comment</a>
-
       <div class="feed-posts">
         <span><img class="feed-user-avatar" src={{ spot.user.avatar.url }}></span>
 	<span class="feed-message-prompt">{{ spot.user.name }}</span>
@@ -40,8 +33,13 @@
 	{% if spot.fuck12 %}
 	<p class="feed-fuck12">🚔 fuck12: {{ spot.fuck12 }}</p>
 	{% endif %}
-
       </div>
+
+      <p class="posts">Posts</p> 
+      <span><img class="feed-user-avatar" src={{ user.avatar.url }}></span>
+      <span class="feed-message-prompt">Write something about this spot</span>
+      <hr class="feed-hr">
+      <a class="feed-comment-link" href="#"><i class="fa-regular fa-pen-to-square feed-comment-icon"></i>Comment</a>
     </div>
     {% endfor %}
 

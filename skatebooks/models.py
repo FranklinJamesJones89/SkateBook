@@ -15,8 +15,11 @@ class User(AbstractUser):
 class Spot(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     name = models.CharField(max_length = 200)
-    location = models.CharField(max_length = 200)
     description = models.TextField()
+    street = models.CharField(max_length = 200)
+    city = models.CharField(max_length = 200)
+    state = models.CharField(max_length = 200)
+    zipcode = models.CharField(max_length = 200)
     fuck12 = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'img/', null = True)
 

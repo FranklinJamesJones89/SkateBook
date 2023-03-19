@@ -16,6 +16,21 @@
   </div>
 </section>
 
+<section>
+  <div class="home-header-active-container">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate1.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate2.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate3.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate4.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate5.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate6.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate1.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate2.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate3.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate4.jpg' %}">
+  </div>
+</section>
+
 <!-- Feed -->
 <section>
   <div class="feed-wrapper">
@@ -26,11 +41,10 @@
 	<span class="feed-message-prompt">{{ spot.user.name }}</span>
 	<span class="feed-created">{{ spot.created|timesince }} ago</span>
 	<hr class="feed-hr">
-	<p>{{ spot.name }}</p>
-	<a href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}"class="feed-location">Location: {{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
 	<img class="feed-img"  src="{{ spot.image.url }}">
-	<p>{{ spot.description }}</p>
-
+	<p class="feed-spot-name">{{ spot.name }}</p>
+	<p class="feed-spot-description">{{ spot.description }}</p>
+	<a href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}"class="feed-location"><i class="fa-solid fa-location-dot feed-comment-icon"></i>Location: {{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
 	{% if spot.fuck12 %}
 	<p class="feed-fuck12">🚔 Fuck12: {{ spot.fuck12 }}</p>
 	{% endif %}

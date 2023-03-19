@@ -6,7 +6,7 @@
 <!-- Header -->
 <section>
   <div class="home-header-img-container">
-    <h1 class="home-header-greeting">Wus' happenin'?</h1>
+    <h1 class="home-header-greeting">The World's Best Spot Finder</h1>
     <img class="home-header-img" src="{% static 'skatebooks/img/skate1.jpg' %}"> 
     <img class="home-header-img" src="{% static 'skatebooks/img/skate2.jpg' %}"> 
     <img class="home-header-img" src="{% static 'skatebooks/img/skate3.jpg' %}"> 
@@ -24,21 +24,19 @@
       <div class="feed-posts">
         <span><img class="feed-user-avatar" src={{ spot.user.avatar.url }}></span>
 	<span class="feed-message-prompt">{{ spot.user.name }}</span>
+	<span class="feed-created">{{ spot.created|timesince }} ago</span>
 	<hr class="feed-hr">
 	<p>{{ spot.name }}</p>
-	<p class="feed-location">{{ spot.location }}</p>
+	<a href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}"class="feed-location">Location: {{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
 	<img class="feed-img"  src="{{ spot.image.url }}">
 	<p>{{ spot.description }}</p>
 
 	{% if spot.fuck12 %}
-	<p class="feed-fuck12">🚔 fuck12: {{ spot.fuck12 }}</p>
+	<p class="feed-fuck12">🚔 Fuck12: {{ spot.fuck12 }}</p>
 	{% endif %}
       </div>
-
-      <p class="posts">Posts</p> 
-      <span><img class="feed-user-avatar" src={{ user.avatar.url }}></span>
-      <span class="feed-message-prompt">Write something about this spot</span>
       <hr class="feed-hr">
+      <a class="feed-comment-link" href="#"><i class="fa-regular fa-heart feed-comment-icon"></i>Like</a>
       <a class="feed-comment-link" href="#"><i class="fa-regular fa-pen-to-square feed-comment-icon"></i>Comment</a>
     </div>
     {% endfor %}

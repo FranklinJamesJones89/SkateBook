@@ -22,6 +22,7 @@ class Spot(models.Model):
     zipcode = models.CharField(max_length = 200)
     fuck12 = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'img/', null = True)
+    created = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.name

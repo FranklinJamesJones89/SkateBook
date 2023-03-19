@@ -52,12 +52,11 @@ nav {
 
 /* Feed */
 .posts {
-	margin-left: 2%;
 }
 
 .feed-wrapper {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
+	grid-template-columns: 2fr 1fr;
 	margin:5% auto auto 5%;
 }
 
@@ -86,12 +85,15 @@ nav {
 
 .feed-comment-link {
 	color: white;
-	margin: 2%;
 	text-decoration: none;
 }
 
 .feed-posts {
 	margin-top: 0%;
+}
+
+.feed-created {
+	color: var(--grey);
 }
 
 .feed-img {
@@ -100,6 +102,8 @@ nav {
 }
 
 .feed-location {
+	display: block;
+	text-decoration: none;
 	color: var(--grey);
 }
 

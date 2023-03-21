@@ -1,0 +1,64 @@
+{% extends 'skatebooks/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header -->
+<section>
+  <div class="home-header-img-container">
+    <h1 class="home-header-greeting">The World's Best Spot Finder</h1>
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate1.jpg' %}"> 
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate2.jpg' %}"> 
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate3.jpg' %}"> 
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate4.jpg' %}"> 
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate5.jpg' %}"> 
+    <img class="home-header-img" src="{% static 'skatebooks/img/skate6.jpg' %}"> 
+  </div>
+</section>
+
+<section>
+  <div class="home-header-active-container">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate1.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate2.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate3.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate4.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate5.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate6.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate1.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate2.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate3.jpg' %}">
+    <img class="home-header-active-img" src="{% static 'skatebooks/img/skate4.jpg' %}">
+  </div>
+</section>
+
+<!-- Feed -->
+<section>
+  <div class="feed-wrapper">
+    {% for spot in spots %}
+    <div class="feed-container">
+      <div class="feed-posts">
+        <span><img class="feed-user-avatar" src={{ user.avatar.url }}></span>
+	<span class="feed-message-prompt">{{ spot.user.name }}</span>
+	<span class="feed-created">{{ spot.created|timesince }} ago</span>
+	<hr class="feed-hr">
+	<img class="feed-img"  src="{{ spot.image.url }}">
+	<p class="feed-spot-name">{{ spot.name }}</p>
+	<p class="feed-spot-description">{{ spot.description }}</p>
+	<a href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}"class="feed-location"><i class="fa-solid fa-location-dot feed-comment-icon"></i>Location: {{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
+	{% if spot.fuck12 %}
+	<p class="feed-fuck12">🚔 Fuck12: {{ spot.fuck12 }}</p>
+	{% endif %}
+      </div>
+      <hr class="feed-hr">
+      <a class="feed-comment-link" href="#"><i class="fa-regular fa-heart fa1x feed-comment-icon"></i>Like</a>
+      <a class="feed-comment-link" href="#"><i class="fa-regular fa-pen-to-square fa1x feed-comment-icon"></i>Comment</a>
+    </div>
+    {% endfor %}
+
+    <div class="recent-container">
+      <p>Recent</p>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

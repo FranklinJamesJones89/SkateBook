@@ -23,6 +23,8 @@ class Spot(models.Model):
     state = models.TextField(null = True)
     zipcode = models.TextField(null = True)
     fuck12 = models.TextField(null = True) 
+    image = models.ImageField(null = True)
+    created = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.name

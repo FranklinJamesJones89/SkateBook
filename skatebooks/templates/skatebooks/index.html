@@ -34,31 +34,32 @@
 <!-- Feed -->
 <section>
   <div class="feed-wrapper">
-    {% for spot in spots %}
-    <div class="feed-container">
-      <div class="feed-posts">
-        <span><img class="feed-user-avatar" src={{ user.avatar.url }}></span>
-	<span class="feed-message-prompt">{{ spot.user.name }}</span>
-	<span class="feed-created">{{ spot.created|timesince }} ago</span>
-	<hr class="feed-hr">
-	<img class="feed-img"  src="{{ spot.image.url }}">
-	<p class="feed-spot-name">{{ spot.name }}</p>
-	<p class="feed-spot-description">{{ spot.description }}</p>
-	<a href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}"class="feed-location"><i class="fa-solid fa-location-dot feed-comment-icon"></i>Location: {{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
-	{% if spot.fuck12 %}
-	<p class="feed-fuck12">🚔 Fuck12: {{ spot.fuck12 }}</p>
-	{% endif %}
+    <div class="feed-col-1">
+      {% for spot in spots %}
+      <div class="feed-details-container">
+	<div class="feed-owner-details-container">
+          <span><img class="feed-owner-avatar"src="{{ spot.owner.avatar.url }}"/></span>
+	  <span class="feed-owner">{{ spot.owner.name }}</span>
+	  <span class="feed-created-span">{{ spot.created|timesince }} ago</span>
+	  <p class="feed-hometown">hometown: {{ spot.owner.hometown }}</p>
+	</div>
+	<img class="feed-image" src="{{ spot.image.url }}"/>
+	<div class="feed-bottom">
+	  <p>{{ spot.name }}</p>
+	  <p>{{ spot.description }}</p>
+	  <a class="feed-location" href="https://www.google.com/maps/place/{{ spot.street }}{{spot.city}}{{spot.state}}{{spot.zipcode}}"><i class="fa-solid fa-location-dot"></i> {{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}</a>
+	  <p class="feed-location">🚔 {{ spot.fuck12 }}</p>
+	</div>
       </div>
-      <hr class="feed-hr">
-      <a class="feed-comment-link" href="#"><i class="fa-regular fa-heart fa1x feed-comment-icon"></i>Like</a>
-      <a class="feed-comment-link" href="#"><i class="fa-regular fa-pen-to-square fa1x feed-comment-icon"></i>Comment</a>
+      <br>
+      {% endfor %}
     </div>
-    {% endfor %}
-
-    <div class="recent-container">
-      <p>Recent</p>
+    
+    <div class="feed-col-2">
+      <h1>Search</h1>
     </div>
   </div>
 </section>
+
 
 {% endblock content %}

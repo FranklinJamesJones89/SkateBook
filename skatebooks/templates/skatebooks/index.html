@@ -32,11 +32,11 @@
 </section>
 
 <!-- Popup Form -->
-{% include 'skatebooks/components/upload_form.html' %}
+{% include 'skatebooks/components/forms/upload_form.html' %}
 
 <!-- Feed -->
 <section>
-  <div class="feed-wrapper">
+
     <div class="feed-col-1">
       {% for spot in spots %}
       <div class="feed-details-container">
@@ -58,10 +58,6 @@
       {% endfor %}
     </div>
     
-    <div class="feed-col-2">
-      <h1>Search</h1>
-    </div>
-  </div>
 
 {% include 'skatebooks/components/footer.html' %}
 </section>

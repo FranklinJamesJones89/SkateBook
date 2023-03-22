@@ -1,14 +1,56 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import User, Spot
-from . forms import MyUserCreationForm
+from . forms import MyUserCreationForm, SpotForm
 
 # Create your views here.
 
+#@login_required(login_url = 'skatebooks: signup')
 def index(request):
+    form = SpotForm()
+
+    if request.method == 'POST':
+        form = SpotForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            spot = form.save(commit = False)
+            spot.owner = request.user
+            form.save()
+
+            return redirect('skatebooks:index')
+
     spots = Spot.objects.all()
-    context = {'spots': spots}
+    context = {'spots': spots, 'form': form}
+
     return render(request, 'skatebooks/index.html', context)
+
+def signin(request):
+    page = 'signin'
+    if request.user.is_authenticated:
+        return redirect('skatebooks:index')
+
+    if request.method == 'POST':
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(email = email)
+        except:
+            messages.info(request, 'No such email')
+
+        user = authenticate(request, email = email, password = password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('skatebooks:index')
+        else:
+            message.info(request, 'Email or password do not exist')
+
+    context = {'page': page}
+    
+    return render(request, 'skatebooks/signup_form.html', context)
 
 def signup(request):
     form = MyUserCreationForm()
@@ -30,4 +72,12 @@ def signup(request):
     context= {'form': form}
             
     return render(request, 'skatebooks/signup_form.html', context)
+
+def signout(request):
+    logout(request)
+    return redirect('skatebooks:index')
+    
+    
+        
+
 

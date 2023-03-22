@@ -1,0 +1,36 @@
+{% load static %}
+
+<!-- The form -->
+<div class="form-popup" id="myForm">
+  <form action="" method="POST" enctype="multipart/form-data" class="form-container">
+    {% csrf_token %}
+    <h1 class="form-popup-header">Add a Spot</h1>
+
+    <label for=""><b>Name</b></label>
+    <input type="text" placeholder="Name" name="name" required>
+
+    <label for=""><b>Description</b></label>
+    <input type="text" placeholder="Description" name="description" required>
+    
+    <label for=""><b>Street</b></label>
+    <input type="text" placeholder="Street" name="street" required>
+    
+    <label for=""><b>City</b></label>
+    <input type="text" placeholder="City" name="city" required>
+    
+    <label for=""><b>State</b></label>
+    <input type="text" placeholder="State" name="state" required>
+    
+    <label for=""><b>Zipcode</b></label>
+    <input type="text" placeholder="Zip" name="zipcode" required>
+    
+    <label for=""><b>Fuck12</b></label>
+    <input type="text" placeholder="Fuck12" name="fuck12" required>
+    
+    <label for=""><b>Image</b></label>
+    <input type="file" placeholder="Image" name="image" required>
+
+    <button type="submit" value="submit" class="btn">Post</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>

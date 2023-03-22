@@ -1,6 +1,7 @@
 {% load bootstrap5 %}
 {% load static %}
 {% bootstrap_css %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +16,19 @@
 
 <body>
 
- {% include 'skatebooks/navbar.html' %}
+ {% include 'skatebooks/components/navbar.html' %}
+
+ {% if messages %}
+ {% for message in messages %}
+ <h5>{{ message }}</h5>
+ {% endfor %}
+ {% endif %}
 
  {% block content %}
 
  {% endblock content %}
 
+<script src="{% static 'skatebooks/js/index.js' %}"></script>
 <script src="https://kit.fontawesome.com/3ff46289c8.js" crossorigin="anonymous"></script>	
 </body>
 </html>

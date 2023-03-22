@@ -14,7 +14,3 @@ class SpotObjectsTestCase(TestCase):
         spots = Spot.objects.all()
         for spot in spots:
             return spot
-        
-
-
-

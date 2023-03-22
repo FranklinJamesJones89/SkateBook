@@ -1,0 +1,16 @@
+{% extends 'skatebooks/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="" method="POST">
+	{% csrf_token %}
+	<input type="text" name="name">
+	<input type="text" name="username">
+	<input type="email" name="email">
+	<input type="password" name="password1">
+	<input type="password" name="password2">
+	<button type="submit" value"submit">Sign up</button>
+</form>
+
+{% endblock content %}

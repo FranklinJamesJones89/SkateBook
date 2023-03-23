@@ -8,7 +8,7 @@ from . forms import MyUserCreationForm, SpotForm
 
 # Create your views here.
 
-#@login_required(login_url = 'skatebooks: signup')
+@login_required(login_url = 'skatebooks:signup')
 def index(request):
     if 'q' in request.GET:
        q = request.GET['q'] 

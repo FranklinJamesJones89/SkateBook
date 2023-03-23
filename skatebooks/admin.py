@@ -2,7 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import User, Spot
+from .models import User, Spot, Message
 
 admin.site.register(User)
 admin.site.register(Spot)
+admin.site.register(Message)

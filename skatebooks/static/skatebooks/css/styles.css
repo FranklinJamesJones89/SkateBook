@@ -11,7 +11,6 @@ body {
 
 /* navbar */ 
 nav {
-	font-family: 'Rubik Iso', cursive;
 	color: white;
 }
 
@@ -72,15 +71,21 @@ nav {
 
 }
 
-.feed-wrapper {
-}
-
 .feed-col-1 {
 	display: block;
 	margin: 0 auto;
 	width: 50%;
 }
 
+@media (max-width: 1000px) {
+	.feed-col-1 {
+		width: 100%;
+	}
+
+	.feed-hometown {
+		margin-left: 20%;
+	}
+}
 
 
 .feed-owner-avatar {

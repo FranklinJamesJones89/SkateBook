@@ -52,6 +52,12 @@
 	  <p>{{ spot.description }}</p>
 	  <a class="feed-location" href="https://www.google.com/maps/place/{{ spot.street }}+{{spot.city}}+{{spot.state}}+{{spot.zipcode}}" target="blank"><i class="fa-solid fa-location-dot"></i> {{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}</a>
 	  <p class="feed-location">🚔 {{ spot.fuck12 }}</p>
+	  {% for message in spot_messages %}
+	  {% if spot.id == message.spot.id %}
+	  <span><b>{{ message.user.username }}</b></span>
+	  <span>{{ message.body }}</span>
+	  {% endif %}
+	  {% endfor %}
 	</div>
       </div>
       <br>

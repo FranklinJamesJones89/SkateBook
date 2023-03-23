@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from .models import User, Spot
+from .models import User, Spot, Message
 from . forms import MyUserCreationForm, SpotForm
 
 # Create your views here.
@@ -29,8 +29,9 @@ def index(request):
             form.save()
 
             return redirect('skatebooks:index')
-
-    context = {'spots': spots, 'form': form}
+    
+    spot_messages = Message.objects.all()
+    context = {'spots': spots, 'form': form, 'spot_messages': spot_messages}
 
     return render(request, 'skatebooks/index.html', context)
 

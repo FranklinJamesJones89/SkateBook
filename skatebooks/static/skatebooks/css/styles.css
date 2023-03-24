@@ -132,6 +132,10 @@ nav {
 	color: var(--grey);
 }
 
+.feed-messages-container {
+	display: block;
+}
+
 /* signup */
 .signup-form-wrapper {
 	display: block;

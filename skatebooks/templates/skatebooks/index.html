@@ -54,10 +54,13 @@
 	  <p class="feed-location">🚔 {{ spot.fuck12 }}</p>
 	  {% for message in spot_messages %}
 	  {% if spot.id == message.spot.id %}
+	  <div class="feed-messages-container">
 	  <span><b>{{ message.user.username }}</b></span>
 	  <span>{{ message.body }}</span>
+	  </div>
 	  {% endif %}
 	  {% endfor %}
+	  <p>more...</p>
 	</div>
       </div>
       <br>

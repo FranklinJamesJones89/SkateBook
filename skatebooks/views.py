@@ -8,8 +8,9 @@ from . forms import MyUserCreationForm, SpotForm
 
 # Create your views here.
 
-@login_required(login_url = 'skatebooks:signup')
+@login_required(login_url = 'skatebooks:signin')
 def index(request):
+    # Queries
     if 'q' in request.GET:
        q = request.GET['q'] 
        #spots = Spot.objects.filter(city__icontains = q)
@@ -19,7 +20,8 @@ def index(request):
         spots = Spot.objects.all()
 
     form = SpotForm()
-
+    
+    #POST requests
     if request.method == 'POST':
         form = SpotForm(request.POST, request.FILES)
 
@@ -30,7 +32,8 @@ def index(request):
 
             return redirect('skatebooks:index')
     
-    spot_messages = Message.objects.all()
+    spot_messages = Message.objects.all()[:3]
+
     context = {'spots': spots, 'form': form, 'spot_messages': spot_messages}
 
     return render(request, 'skatebooks/index.html', context)
@@ -85,8 +88,3 @@ def signup(request):
 def signout(request):
     logout(request)
     return redirect('skatebooks:index')
-    
-    
-        
-
-

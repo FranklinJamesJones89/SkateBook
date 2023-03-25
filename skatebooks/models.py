@@ -24,6 +24,7 @@ class Spot(models.Model):
     zipcode = models.TextField(null = True)
     fuck12 = models.TextField(null = True) 
     image = models.ImageField(null = True)
+    num_of_likes = models.IntegerField(default = 0)
     created = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
@@ -41,4 +42,11 @@ class Message(models.Model):
 
     def __str__(self):
         return self.body[:50]
+
+class LikeSpot(models.Model):
+    spot_id = models.CharField(max_length = 500)
+    username = models.CharField(max_length = 100)
+
+    def __str__(self):
+        return self.username
 

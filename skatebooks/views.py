@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from .models import User, Spot, Message
+from .models import User, Spot, Message, LikeSpot
 from . forms import MyUserCreationForm, SpotForm
 
 # Create your views here.
@@ -26,18 +26,41 @@ def index(request):
         form = SpotForm(request.POST, request.FILES)
 
         if form.is_valid():
+            print('valid')
             spot = form.save(commit = False)
             spot.owner = request.user
             form.save()
+        else:
+            print('form is not valid')
 
             return redirect('skatebooks:index')
-    
-    spot_messages = Message.objects.all()[:3]
 
-    context = {'spots': spots, 'form': form, 'spot_messages': spot_messages}
+    context = {'spots': spots, 'form': form}
 
     return render(request, 'skatebooks/index.html', context)
 
+@login_required(login_url = 'skatebooks:signin')
+def like_spot(request):
+    username = request.user.username
+    spot_id = request.GET.get('spot_id')
+    spot = Spot.objects.get(id = spot_id)
+
+    like_filter = LikeSpot.objects.filter(spot_id = spot_id, username = username).first()
+    
+    if like_filter == None:
+        new_like = LikeSpot.objects.create(spot_id = spot_id, username = username)
+        new_like.save()
+        spot.num_of_likes = spot.num_of_likes+1
+        spot.save()
+
+        return redirect('/')
+    else:
+        like_filter.delete()
+        spot.num_of_likes = spot.num_of_likes-1
+        spot.save()
+
+        return redirect('/')
+        
 def signin(request):
     page = 'signin'
     if request.user.is_authenticated:

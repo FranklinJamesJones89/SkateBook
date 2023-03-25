@@ -1,0 +1,6 @@
+{% load static %}
+
+<form action="" method="POST" class="feed-comment-form">
+ {% csrf_token %}
+ <input class="feed-comment-input" type="text" name="body" placeholder="comment">
+</form>

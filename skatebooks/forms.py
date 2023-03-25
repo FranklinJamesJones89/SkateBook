@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
-from .models import User, Spot
+from .models import User, Spot, Message
 
 class MyUserCreationForm(UserCreationForm):
     class Meta:
@@ -11,4 +11,10 @@ class SpotForm(ModelForm):
     class Meta:
         model = Spot
         fields = '__all__'
-        exclude = ['owner']
+        exclude = ['owner', 'num_of_likes']
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Message
+        fields = '__all__'
+        exclude = ['user', 'spot']

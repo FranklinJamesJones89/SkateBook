@@ -3,8 +3,6 @@ let copyRight = () => {
 	document.querySelector('.copyright').innerHTML = `©️  ${date}`;
 }
 
-copyRight();
-
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
@@ -13,5 +11,12 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-openForm();
-closeForm();
+function showMessages() {
+	document.getElementById('feed-messages-hidden').style.display = "block";
+}
+
+function showCommentForm() {
+	document.querySelector('.feed-comment-form').style.display = 'block';
+}
+
+copyRight();

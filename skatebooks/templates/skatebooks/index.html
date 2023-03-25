@@ -46,21 +46,23 @@
 	  <span class="feed-created-span">{{ spot.created|timesince }} ago</span>
 	  <p class="feed-hometown">hometown: {{ spot.owner.hometown }}</p>
 	</div>
+
 	<img class="feed-image" src="{{ spot.image.url }}"/>
 	<div class="feed-bottom">
+	  <a class="feed-like-link" href="/like-spot?spot_id={{ spot.id }}"><i class="fa-regular fa-heart fa-2x feed-icons"></i></a>
+	  <button id="feed-icon-btn" onclick="showCommentForm()"><i class="fa-regular fa-comment fa-2x feed-icons"></i></button>
+	  {% if spot.num_of_likes  == 0 %}
+	  <p>No likes</p>
+	  {% elif spot.num_of_likes == 1 %}
+	  <p class="feed-likes">Liked by <b class="feed-likes-bold">{{ spot.num_of_likes }} other</b></p>
+	  {% else %}
+	  <p class="feed-likes">Liked by <b class="feed-likes-bold">{{ spot.num_of_likes }} others</b></p>
+	  {% endif %}
 	  <p>{{ spot.name }}</p>
 	  <p>{{ spot.description }}</p>
 	  <a class="feed-location" href="https://www.google.com/maps/place/{{ spot.street }}+{{spot.city}}+{{spot.state}}+{{spot.zipcode}}" target="blank"><i class="fa-solid fa-location-dot"></i> {{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}</a>
 	  <p class="feed-location">🚔 {{ spot.fuck12 }}</p>
-	  {% for message in spot_messages %}
-	  {% if spot.id == message.spot.id %}
-	  <div class="feed-messages-container">
-	  <span><b>{{ message.user.username }}</b></span>
-	  <span>{{ message.body }}</span>
-	  </div>
-	  {% endif %}
-	  {% endfor %}
-	  <p>more...</p>
+
 	</div>
       </div>
       <br>

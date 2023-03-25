@@ -18,3 +18,9 @@ class CommentForm(ModelForm):
         model = Message
         fields = '__all__'
         exclude = ['user', 'spot']
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['avatar', 'username', 'name', 'email', 'bio', 'hometown']
+

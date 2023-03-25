@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
 from .models import User, Spot, Message, LikeSpot
-from . forms import MyUserCreationForm, SpotForm
+from . forms import MyUserCreationForm, SpotForm, ProfileForm
 
 # Create your views here.
 
@@ -38,6 +38,34 @@ def index(request):
     context = {'spots': spots, 'form': form}
 
     return render(request, 'skatebooks/index.html', context)
+
+def profile(request, pk):
+    user = User.objects.get(id = pk)
+    spots = user.spot_set.all()
+
+    context = {'user': user, 'spots': spots}
+
+    return render(request, 'skatebooks/profile.html', context)
+
+def settings(request):
+    user = request.user
+    form = ProfileForm(instance = user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance = user)
+        
+        if form.is_valid():
+            print('valid')
+            form.save()
+        else:
+            print('not valid')
+            
+            return redirect('skatebooks:profile', pk = user.id)
+
+    
+    context = {'user': user, 'form': form}
+
+    return render(request, 'skatebooks/settings.html', context)
 
 @login_required(login_url = 'skatebooks:signin')
 def like_spot(request):

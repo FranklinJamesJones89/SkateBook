@@ -295,3 +295,58 @@ nav {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+/* Profile settings */
+.profile-settings-container {
+	margin: 5% auto;
+	width: 80%;
+	color: white;
+}
+
+.profile-settings-container h1 {
+	font-size: 22px;
+}
+
+.profile-settings-form-grid {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	width: 90%;
+	
+}
+
+.profile-settings-avatar {
+	width: 200px;
+	border-radius: 12px;
+}
+
+.profile-settings-form {
+	border-radius: 12px;
+	background-color: var(--white);
+	margin-right: 10%;
+	padding: 50px;
+	color: var(--primary-color);
+}
+
+.profile-settings-form label {
+	margin-top: 2%;
+}
+
+.profile-settings-form input {
+	margin-top: 5%;
+	border-radius: 12px;
+	border: 1px solid var(--primary-color);
+}
+
+.profile-settings-form button {
+	margin-top: 5%;
+	background-color: var(--primary-color);
+	border: 1px solid var(--white);
+	border-radius: 12px;
+	color: var(--white);
+	padding: 5px;
+}
+
+.profile-settings-cancel-btn {
+	color: var(--white);
+	text-decoration: none;
+}

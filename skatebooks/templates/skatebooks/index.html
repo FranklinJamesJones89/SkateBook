@@ -55,6 +55,7 @@
 	  <p>No likes</p>
 	  {% elif spot.num_of_likes == 1 %}
 	  <p class="feed-likes">Liked by <b class="feed-likes-bold">{{ spot.num_of_likes }} other</b></p>
+	  <p>{{ spot.num_of_likes.user }}</p>
 	  {% else %}
 	  <p class="feed-likes">Liked by <b class="feed-likes-bold">{{ spot.num_of_likes }} others</b></p>
 	  {% endif %}

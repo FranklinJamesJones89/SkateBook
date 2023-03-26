@@ -1,5 +1,60 @@
 {% extends 'skatebooks/components/main.html' %}
-
+{% load static %}
 {% block content %}
 
+
+<!-- Popup Form -->
+{% include 'skatebooks/components/forms/upload_form.html' %}
+
+<div class="profile-container">
+  <div class="profile-top-container">
+    <span>{{ user.name }}</span>
+    <span><a href="#"><i class="fa-solid fa-caret-down"></i></a></span>
+  </div>	
+  <hr>
+
+	
+  <div class="profile-middle-container-wrapper">
+	  <div>
+	 <img class="profile-middle-avatar" src={{ user.avatar.url }}>
+	 <p class="profile-middle-username">{{ user.username }}</p>
+	 <button class="profile-middle-edit-btn"><a style="color: var(--white); text-decoration: none"href="{% url 'skatebooks:settings' %}">Edit Profile</a></button>
+	  </div>
+
+	  <div>
+	  <p>Posts</p>
+	  <p class="profile-middle-follow-info">21</p>
+	  </div>
+
+	  <div>
+	  <p>Following</p>
+	  <p class="profile-middle-follow-info">53</p>
+	  </div>
+
+	  <div>
+	  <p>Followers</p>
+	  <p class="profile-middle-follow-info">321</p>
+	  </div>
+  </div>
+
+  <div class="profile-middle-user-info">
+  <p>🏠 {{ user.hometown }}</p>
+  <p>{{ user.bio }}</p>
+  </div>
+	
+  <div class="profile-bottom-container">
+  {% for spot in spots %}
+  <img class="profile-bottom-images" src="{{ spot.image.url }}">
+  {% endfor %}
+  </div>
+
+  <div class="profile-bottom-icons">
+  <a href="{% url 'skatebooks:index' %}"><i class="fa-solid fa-house fa-2x"></i></a>
+  <a href="#" class="open-button-nav-link" onclick="openForm()"><i class="fa-solid fa-square-plus fa-2x"></i></a>
+  <a href="#"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
+  </div>
+
+</div>
+
+{% include 'skatebooks/components/footer.html' %}
 {% endblock content %}

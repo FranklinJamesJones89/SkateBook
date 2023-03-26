@@ -34,6 +34,7 @@ def index(request):
             print('form is not valid')
 
             return redirect('skatebooks:index')
+    
 
     context = {'spots': spots, 'form': form}
 
@@ -41,7 +42,21 @@ def index(request):
 
 def profile(request, pk):
     user = User.objects.get(id = pk)
-    spots = user.spot_set.all()
+    spots = user.spot_set.all()[:6]
+    
+    #POST requests
+    if request.method == 'POST':
+        form = SpotForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            print('valid')
+            spot = form.save(commit = False)
+            spot.owner = request.user
+            form.save()
+        else:
+            print('form is not valid')
+
+            return redirect('skatebooks:profile')
 
     context = {'user': user, 'spots': spots}
 
@@ -88,6 +103,7 @@ def like_spot(request):
         spot.save()
 
         return redirect('/')
+    
         
 def signin(request):
     page = 'signin'
@@ -109,7 +125,7 @@ def signin(request):
             login(request, user)
             return redirect('skatebooks:index')
         else:
-            message.info(request, 'Email or password do not exist')
+            messages.info(request, 'Email or password do not exist')
 
     context = {'page': page}
     

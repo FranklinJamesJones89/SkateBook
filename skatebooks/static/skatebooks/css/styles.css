@@ -94,6 +94,11 @@ nav {
 	border: 1px solid var(--grey);
 }
 
+.feed-profile-link {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
 .feed-image {
 	width: 100%;
 	height: 100%;

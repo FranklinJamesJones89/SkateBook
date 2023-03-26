@@ -42,14 +42,14 @@
       <div class="feed-details-container">
 	<div class="feed-owner-details-container">
           <span><img class="feed-owner-avatar"src="{{ spot.owner.avatar.url }}"/></span>
-	  <span class="feed-owner">{{ spot.owner.name }}</span>
+	  <span class="feed-owner"><a class="feed-profile-link" href="{% url 'skatebooks:profile' user.id %}"><b>{{ spot.owner.name }}</b></a></span>
 	  <span class="feed-created-span">{{ spot.created|timesince }} ago</span>
 	  <p class="feed-hometown">hometown: {{ spot.owner.hometown }}</p>
 	</div>
 
 	<img class="feed-image" src="{{ spot.image.url }}"/>
 	<div class="feed-bottom">
-	  <a class="feed-like-link" href="/like-spot?spot_id={{ spot.id }}"><i class="fa-regular fa-heart fa-2x feed-icons"></i></a>
+	  <a class="feed-like-link" href="/like-spot?spot_id={{ spot.id }}"><i class="fa-regular fa-thumbs-up fa-2x feed-icons"></i></a>
 	  <button id="feed-icon-btn" onclick="showCommentForm()"><i class="fa-regular fa-comment fa-2x feed-icons"></i></button>
 	  {% if spot.num_of_likes  == 0 %}
 	  <p>No likes</p>

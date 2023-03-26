@@ -26,13 +26,10 @@ def index(request):
         form = SpotForm(request.POST, request.FILES)
 
         if form.is_valid():
-            print('valid')
             spot = form.save(commit = False)
             spot.owner = request.user
             form.save()
         else:
-            print('form is not valid')
-
             return redirect('skatebooks:index')
     
 
@@ -42,23 +39,22 @@ def index(request):
 
 def profile(request, pk):
     user = User.objects.get(id = pk)
-    spots = user.spot_set.all()[:6]
+    spots = user.spot_set.all()
+    user_spots_length = len(spots)
+
     
     #POST requests
     if request.method == 'POST':
         form = SpotForm(request.POST, request.FILES)
 
         if form.is_valid():
-            print('valid')
             spot = form.save(commit = False)
             spot.owner = request.user
             form.save()
         else:
-            print('form is not valid')
-
             return redirect('skatebooks:profile')
 
-    context = {'user': user, 'spots': spots}
+    context = {'user': user, 'spots': spots, 'user_spots_length': user_spots_length}
 
     return render(request, 'skatebooks/profile.html', context)
 

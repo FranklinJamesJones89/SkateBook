@@ -11,5 +11,6 @@ urlpatterns = [
     path('signout/', views.signout, name = 'signout'),
     path('like-spot', views.like_spot,name ='like-spot'),
     path('profile/<str:pk>/', views.profile, name = 'profile'),
+    path('follow', views.follow, name = 'follow'),
     path('settings/', views.settings, name = 'settings'),
 ]

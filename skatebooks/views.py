@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
-from .models import User, Spot, Message, LikeSpot
+from .models import User, Spot, Message, LikeSpot, FollowersCount
 from . forms import MyUserCreationForm, SpotForm, ProfileForm
 
 # Create your views here.
@@ -39,8 +39,9 @@ def index(request):
 
 def profile(request, pk):
     user = User.objects.get(id = pk)
-    spots = user.spot_set.all()
-    user_spots_length = len(spots)
+    spots_total = user.spot_set.all()
+    spots = user.spot_set.all()[:6]
+    user_spots_length = len(spots_total)
 
     
     #POST requests
@@ -54,9 +55,34 @@ def profile(request, pk):
         else:
             return redirect('skatebooks:profile')
 
-    context = {'user': user, 'spots': spots, 'user_spots_length': user_spots_length}
+    context = {
+            'user': user, 
+            'spots': spots, 
+            'user_spots_length': user_spots_length
+    }
 
     return render(request, 'skatebooks/profile.html', context)
+
+@login_required(login_url = '/skatebooks:signin')
+def follow(request):
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+        
+        if FollowersCount.objects.filter(follower = follower, user = user).first():
+            delete_follower = FollowersCount.objects.get(follower = follower, user = user)
+            delete_follower.delete()
+            
+            return redirect('skatebooks:profile/' + user.id)
+
+        else:
+            new_follower = FollowersCount.objects.create(follower = follower, user = user)
+            new_follower.save()
+            
+            return redirect('skatebooks:profile/' + user)
+
+    else:
+        return redirect('skatebooks:index')
 
 def settings(request):
     user = request.user
@@ -136,7 +162,7 @@ def signup(request):
         if form.is_valid():
             print('is valid')
             user = form.save(commit = False)
-            user.username = user.username.lower()
+            user.username = user.username
             user.save()
             login(request, user)
 

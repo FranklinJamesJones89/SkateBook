@@ -2,9 +2,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import User, Spot, Message, LikeSpot
+from .models import User, Spot, Message, LikeSpot, FollowersCount
 
 admin.site.register(User)
 admin.site.register(Spot)
 admin.site.register(Message)
 admin.site.register(LikeSpot)
+admin.site.register(FollowersCount)

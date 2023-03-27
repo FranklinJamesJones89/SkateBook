@@ -9,7 +9,12 @@
 <div class="profile-container">
   <div class="profile-top-container">
     <span>{{ user.name }}</span>
-    <span><a href="#"><i class="fa-solid fa-caret-down"></i></a></span>
+    <form action="skatebooks:follow/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" value={{ user.username }} name="follower">
+    <input type="hidden" value={{ user_object.username }} name="user">
+    <button type="submit" value="Submit" class="profile-follow-btn">Follow</button>
+    </form>
   </div>	
   <hr>
 
@@ -22,8 +27,16 @@
 	  </div>
 
 	  <div>
+	  {% if user_spots_length == 0 %}
 	  <p>Posts</p>
 	  <p class="profile-middle-follow-info">{{ user_spots_length }}</p>
+	  {% elif user_spots_length == 1 %}
+	  <p>Post</p>
+	  <p class="profile-middle-follow-info">{{ user_spots_length }}</p>
+	  {% else %}
+	  <p>Posts</p>
+	  <p class="profile-middle-follow-info">{{ user_spots_length }}</p>
+	  {% endif %}
 	  </div>
 
 	  <div>
@@ -44,13 +57,15 @@
 	
   <div class="profile-bottom-container">
   {% for spot in spots %}
+  <a href="{{ spot.image.url }}">
   <img class="profile-bottom-images" src="{{ spot.image.url }}">
+  </a>
   {% endfor %}
   </div>
 
   <div class="profile-bottom-icons">
   <a href="{% url 'skatebooks:index' %}"><i class="fa-solid fa-house fa-2x"></i></a>
-  <a href="#" class="open-button-nav-link" onclick="openForm()"><i class="fa-solid fa-square-plus fa-2x"></i></a>
+  <a href="" class="open-button-nav-link" onclick="openForm()"><i class="fa-solid fa-square-plus fa-2x"></i></a>
   <a href="#"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
   </div>
 

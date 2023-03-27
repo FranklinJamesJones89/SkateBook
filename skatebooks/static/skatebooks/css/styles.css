@@ -446,4 +446,12 @@ nav {
 	margin: 5%;
 }
 
+.profile-follow-btn {
+	border: 1px solid var(--white);
+	border-radius: 12px;
+	color: white;
+	background-color: var(--primary-color);
+	margin-left: 1%;
+}
+
 

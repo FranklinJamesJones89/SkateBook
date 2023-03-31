@@ -7,8 +7,36 @@ class User(AbstractUser):
     name = models.CharField(max_length = 200, null = True)
     username = models.CharField(max_length = 200)
     email = models.EmailField(unique = True)
-    bio = models.TextField(blank = True)
+    hometown = models.CharField(max_length = 500, blank = True)
     avatar = models.ImageField(default = 'avatar.svg', blank = True, null = True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+class Category(models.Model):
+    name = models.CharField(max_length = 200)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+
+class Spot(models.Model):
+    owner = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
+    category = models.ForeignKey(Category, related_name = 'categories', on_delete = models.CASCADE)
+    name = models.CharField(max_length = 500)
+    description = models.TextField()
+    street = models.CharField(max_length = 500)
+    city = models.CharField(max_length = 500)
+    state = models.CharField(max_length = 500)
+    zipcode = models.CharField(max_length = 500)
+    twelve = models.CharField(max_length = 500)
+    image = models.ImageField()
+    created = models.DateTimeField(auto_now_add = True, null = True)
+
+    def __str__(self):
+        return self.name
+    
+
+

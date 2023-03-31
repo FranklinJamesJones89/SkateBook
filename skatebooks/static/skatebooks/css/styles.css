@@ -4,8 +4,8 @@
 }
 
 body {
-		background-color: var(--black);
-		font-family: 'Montserrat', sans-serif;
+	background-color: var(--black);
+	font-family: 'Montserrat', sans-serif;
 }
 
 /* Navbar */
@@ -60,6 +60,12 @@ body {
 	list-style: none;
 	text-decoration: none;
 	color: var(--white);
+}
+
+@media (max-width: 1000px) {
+	.index-category-container ul {
+		display: block;
+	}
 }
 
 .index-category-container a {

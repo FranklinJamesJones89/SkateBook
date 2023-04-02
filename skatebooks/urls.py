@@ -5,5 +5,6 @@ app_name = 'skatebooks'
 
 urlpatterns = [
     path('', views.index, name = 'index'),
-    path('category/<str:pk>/', views.category, name = 'category'),
+    path('categories/<str:pk>/', views.categories, name = 'categories'),
+    path('spot/<str:pk>/', views.spot, name = 'spot')
 ]

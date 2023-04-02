@@ -12,10 +12,18 @@ def index(request):
 
     return render(request, 'skatebooks/index.html', context)
 
-def category(request, pk):
-    spots = Spot.objects.get(id = pk)
-    spot = spots.category_set.all()
+def categories(request, pk):
+    categories = Category.objects.all()
+    category = Category.objects.get(id = pk)
+    spots = category.spot_set.order_by('-created')
+
+    context = {'category': category, 'spots': spots, 'categories': categories}
+
+    return render(request, 'skatebooks/categories.html', context)
+
+def spot(request, pk):
+    spot = Spot.objects.get(id = pk)
 
     context = {'spot': spot}
 
-    return render(request, 'skatebooks/category', context)
+    return render(request, 'skatebooks/spot.html', context)

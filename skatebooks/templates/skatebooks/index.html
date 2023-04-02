@@ -15,20 +15,7 @@
   <img class="index-header-img" src="{% static 'skatebooks/img/skate6.jpg' %}" alt="skateboarding">
 </div>
 
-<!-- Categories -->
-<div class="index-category-container">
-<ul class="index-list-container">
-{% for category in categories %}
-<li><a href="{% url 'skatebooks:category' category.id %}">{{ category.name }}</a></li>
-{% endfor %}
-</ul>
-</div>
-
-<!-- Search Categories -->
-<form class="index-form" action="" method="POST">
-{% csrf_token %}
-<input type="text" placeholder="Find spots near you">
-</form>
+{% include 'skatebooks/components/forms/search_form.html' %}
 
 <!-- Spots -->
 <div class="index-spots-container">
@@ -37,7 +24,8 @@
   <span><img class="index-spot-owner-avatar" src="{{ spot.owner.avatar.url }}"></span>
   <span><a href="#">{{ spot.owner.name }}</a></span>
   <img class="index-spots-img" src="{{ spot.image.url }}" >
-  <p><a class="index-spots-name" href="#">{{ spot.name }}</a></p>
+  <a class="index-spots-name" href="{% url 'skatebooks:spot' spot.id %}">{{ spot.name }}</a>
+  <a class="index-spots-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
   </div>
   {% endfor %}
 </div>

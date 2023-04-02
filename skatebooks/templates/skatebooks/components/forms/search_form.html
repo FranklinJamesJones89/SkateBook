@@ -1,0 +1,14 @@
+<!-- Categories -->
+<div class="index-category-container">
+<ul class="index-list-container">
+{% for category in categories %}
+<li><a href="{% url 'skatebooks:categories' category.id %}">{{ category.name }}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+<!-- Search Categories -->
+<form class="index-form" action="" method="POST">
+{% csrf_token %}
+<input type="text" placeholder="Find spots near you">
+</form>

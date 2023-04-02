@@ -24,7 +24,7 @@ class Category(models.Model):
 
 class Spot(models.Model):
     owner = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
-    category = models.ForeignKey(Category, related_name = 'categories', on_delete = models.CASCADE)
+    category = models.ForeignKey(Category, on_delete = models.CASCADE)
     name = models.CharField(max_length = 500)
     description = models.TextField()
     street = models.CharField(max_length = 500)

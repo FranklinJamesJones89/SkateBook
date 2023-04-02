@@ -1,0 +1,12 @@
+{% extends 'skatebooks/components/base.html' %}
+
+{% block content %}
+{% include 'skatebooks/components/forms/search_form.html' %}
+
+<h1>{{ category }}</h1>
+
+{% for spot in spots %}
+<h1>{{ spot.name }}</h1>
+{% endfor %}
+
+{% endblock content %}

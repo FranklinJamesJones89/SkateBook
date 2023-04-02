@@ -111,10 +111,14 @@
 
 .index-spots-name {
 	text-align: center;
+	font-size: .75em;
 	text-decoration: none;
-	color: var(--grey);
+	color: var(--white);
 }
 
-.index-spots-description {
-	color: var(--grey);
+.index-spots-location {
+	display: block;
+	color: var(--white);
+	font-size: .75em;
+	text-decoration: none;
 }

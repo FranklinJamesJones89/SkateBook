@@ -122,3 +122,42 @@
 	font-size: .75em;
 	text-decoration: none;
 }
+
+/* Spot page */
+.spot-container {
+	margin-top: 5%;
+	padding: 30px;
+	display: flex;
+}
+
+.spot-image {
+	width: 500px;
+	height: 400px;
+	border: 1px solid var(--grey);
+
+}
+
+.spot-details-container {
+	margin-top: 5%;
+	padding: 15px;
+	color: white;
+}
+
+.spot-details-container a {
+	margin-top: 2%;
+	text-decoration: none;
+	color: var(--white);
+}
+
+.spot-description {
+	margin-top: 2%;
+}
+
+.spot-owner-avatar {
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.spot-owner-name {
+}

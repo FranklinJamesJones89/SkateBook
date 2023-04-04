@@ -2,5 +2,19 @@
 
 {% block content %}
 
+{% include 'skatebooks/components/forms/search_form.html' %}
 
+<div class="spot-container">
+<div>
+  <img class="spot-image" src="{{ spot.image.url }}">
+</div>
+
+  <div class="spot-details-container">
+    <h1>{{ spot.name }}</h1>
+    <a class="spot-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
+    <p class="spot-description">{{ spot.description }}</p>
+    <p>🚔 {{ spot.twelve }}</p>
+  </div>
+
+</div>
 {% endblock content %}

@@ -23,7 +23,8 @@ def categories(request, pk):
 
 def spot(request, pk):
     spot = Spot.objects.get(id = pk)
+    categories = Category.objects.all()
 
-    context = {'spot': spot}
+    context = {'spot': spot, 'categories': categories}
 
     return render(request, 'skatebooks/spot.html', context)

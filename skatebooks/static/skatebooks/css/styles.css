@@ -18,12 +18,10 @@
 }
 
 .navbar-brand {
-	color: var(--white);
+	font-size: 5vw;
+	color: red;
 }
 
-.nav-item a {
-	color: var(--white);
-}
 
 .dropdown-menu {
 	background-color:var(--black);
@@ -55,6 +53,13 @@
 	list-style: none;
 }
 
+@media (max-width: 1000px) {
+	.index-list-container {
+		display: block;
+		text-align: center;
+	}
+}
+
 .index-list-container a {
 	text-decoration: none;
 	color: var(--grey);
@@ -62,7 +67,7 @@
 
 .index-form {
 	margin: 3%  auto;
-	width: 25%;
+	width: 50%;
 }
 
 .index-form input {
@@ -74,6 +79,12 @@
 	padding: 5px;
 }
 
+@media (max-width: 1000px) {
+	.index-form input {
+		width: 60vw;
+	}
+}
+
 .index-spots-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -81,6 +92,17 @@
 	width: 90%;
 	color: var(--white);
 	
+}
+
+@media (max-width: 1000px) {
+	.index-spots-container {
+		margin-top: 5%;
+		display: block;
+	}
+
+	.index-spots-container div {
+		margin-top: 10%;
+	}
 }
 
 .index-spots-container span a {
@@ -128,6 +150,17 @@
 	margin-top: 5%;
 	padding: 30px;
 	display: flex;
+}
+
+@media (max-width: 1000px) {
+	.spot-container {
+		display: block;
+	}
+
+	.spot-image-container img {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .spot-image {

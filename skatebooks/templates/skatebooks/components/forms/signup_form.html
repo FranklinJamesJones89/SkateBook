@@ -1,0 +1,44 @@
+{% extends 'skatebooks/components/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Sign in -->
+{% if page == 'signin' %}
+<div>
+<form action="" method="POST" class="signup-form-wrapper">
+  {% csrf_token %}
+  <h1 class="signup-form-header">Sign in</h1>
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="Password">
+  <button type="submit" value"submit">Submit</button>
+</form>
+
+<div class="signup-form-prompt">
+<p>Don't have an account? Sign up</p>
+<a id="signup-form-alt" href="{% url 'skatebooks:signup' %}">Sign up</a>
+</div>
+</div>
+
+<!-- Sign up -->
+{% else %}
+<div>
+<form action="" method="POST" class="signup-form-wrapper">
+  {% csrf_token %}
+  <h1 class="signup-form-header">Sign up</h1>
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="username" placeholder="Username">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="password1" placeholder="Password">
+  <input type="password" name="password2" placeholder="Confirm">
+  <button type="submit" value"submit">Submit</button>
+</form>
+
+<div class="signup-form-prompt">
+<p>Already have an account? Sign in</p>
+<a id="signup-form-alt" href="{% url 'skatebooks:signin' %}">Sign in</a>
+</div>
+</div>
+{% endif %}
+
+{% endblock content %}

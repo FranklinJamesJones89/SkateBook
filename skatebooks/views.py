@@ -28,3 +28,11 @@ def spot(request, pk):
     context = {'spot': spot, 'categories': categories}
 
     return render(request, 'skatebooks/spot.html', context)
+
+def signin(request):
+    page = 'signin'
+    context = {'page': page}
+    return render(request, 'skatebooks/components/forms/signup_form.html', context)
+
+def signup(request):
+    return render(request, 'skatebooks/components/forms/signup_form.html')

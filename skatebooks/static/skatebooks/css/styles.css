@@ -8,6 +8,11 @@
  background-color: var(--black);	
 }
 
+/* Font Awesome Icons */
+i {
+	color: var(--white);
+}
+
 /* Navbar */
 .navbar-img {
 	width: 50px;
@@ -22,6 +27,15 @@
 	color: red;
 }
 
+.nav-item a {
+	color: white;
+}
+
+.nav-avatar {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
 
 .dropdown-menu {
 	background-color:var(--black);
@@ -83,6 +97,22 @@
 	.index-form input {
 		width: 60vw;
 	}
+}
+
+.index-spots-header {
+	margin-top: 10%;
+}
+
+.index-spots-header hr {
+	margin-left: 5%;	
+	margin-right: 5%;
+	color: var(--white);
+}
+
+.index-spots-header h1 {
+	margin-left: 5%;
+	color: var(--white);
+	font-size: 3vw;
 }
 
 .index-spots-container {
@@ -190,7 +220,69 @@
 	width: 75px;
 	height: 75px;
 	border-radius: 50%;
+	margin-bottom: 2%;
+	margin-right: 2%;
 }
 
-.spot-owner-name {
+.like-btn {
+	background-color: none;
+	color: white;
+	border: none;
+	outline: none;
+}
+
+/* signup */
+.signup-form-wrapper {
+	display: block;
+	margin: 5% auto 10%;
+	color: white;
+}
+
+@media (max-width: 1000px) {
+	.signup-form-wrapper {
+		margin-top: 30%;
+	}
+}
+
+.signup-form-wrapper input{
+	display: block;
+	margin: 1% auto;
+	border-radius: 12px;
+	color: white;
+	padding: 5px;
+}
+
+.signup-form-wrapper button {
+	display: block;
+	margin:2% auto;
+	color: white;
+	width: 18%;
+	background-color: var(--primary);
+	color: var(--white);
+	border:2px solid var(--white);
+	border-radius: 12px;
+}
+
+.signup-form-header {
+	text-align: center;
+	color: var(--white);
+}
+
+.signup-form-prompt {
+	margin:-4% auto;
+	width: 20%;
+	text-align: center;
+}
+
+#signup-form-alt {
+	text-decoration: none;
+}
+
+/* footer */
+.footer-wrapper {
+	margin-top: 10%;
+	width: 100%;
+	text-align: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }

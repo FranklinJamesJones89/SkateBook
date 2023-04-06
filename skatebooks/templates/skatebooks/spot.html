@@ -10,11 +10,15 @@
 </div>
 
   <div class="spot-details-container">
+    <span><img class="spot-owner-avatar" src="{{ spot.owner.avatar.url }}"alt=""></span>	  
+    <span>{{ spot.owner.username }}</span>
     <h1>{{ spot.name }}</h1>
     <a class="spot-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
     <p class="spot-description">{{ spot.description }}</p>
     <p>🚔 {{ spot.twelve }}</p>
+    <button class="like-btn"><i class="fa-regular fa-thumbs-up fa-2x"></i> 0</button>
   </div>
 
 </div>
+
 {% endblock content %}

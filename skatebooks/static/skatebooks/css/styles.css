@@ -13,6 +13,13 @@ i {
 	color: var(--white);
 }
 
+/* Error messages */
+.error-messages li {
+	color: red;
+	text-align: center;
+	list-style: none;
+}
+
 /* Navbar */
 .navbar-img {
 	width: 50px;
@@ -269,7 +276,7 @@ i {
 }
 
 .signup-form-prompt {
-	margin:-4% auto;
+	margin:-8% auto;
 	width: 20%;
 	text-align: center;
 }

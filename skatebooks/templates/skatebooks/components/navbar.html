@@ -21,10 +21,10 @@
 	    <img class="nav-avatar" src={{ user.avatar.url }} alt="profile">
           </a>
           <ul style="background-color: var(--black);"class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">your profile</a></li>
+            <li><a class="dropdown-item" href="#">your settings</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+	    <li><a class="dropdown-item" href="{% url 'skatebooks:signout' %}">sign out</a></li>
           </ul>
         </li>
 	{% else %}

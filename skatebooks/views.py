@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import SignupForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import User, Spot, Category
+from .models import User, Spot, Category, LikeSpot
 
 # Create your views here.
 
@@ -79,7 +80,33 @@ def signup(request):
 
     return render(request, 'skatebooks/components/forms/signup_form.html')
 
+@login_required(login_url = 'skatebooks:signin')
 def signout(request):
     logout(request)
 
     return redirect('skatebooks:index')
+
+@login_required(login_url = 'skatebooks:signin')
+def like_spot(request):
+    username = request.user.username
+    spot_id = request.GET.get('spot_id')
+    spot = Spot.objects.get(id = spot_id)
+
+    spot_filter = LikeSpot.objects.filter(username = username, spot_id = spot_id).first()
+
+    if spot_filter == None:
+        new_like = LikeSpot.objects.create(username = username, spot_id = spot_id)
+        new_like.save()
+        spot.num_of_likes = spot.num_of_likes + 1
+        spot.save()
+
+        return redirect('skatebooks:spot', spot_id)
+    else:
+        spot_filter.delete()
+        spot.num_of_likes = spot.num_of_likes - 1
+        spot.save()
+
+        return redirect('skatebooks:spot', spot_id)
+        
+        
+   

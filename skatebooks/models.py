@@ -33,11 +33,16 @@ class Spot(models.Model):
     zipcode = models.CharField(max_length = 500)
     twelve = models.CharField(max_length = 500)
     image = models.ImageField()
-    #num_of_likes = models.IntegerField(default = 0, null = True, blank = True)
+    num_of_likes = models.IntegerField(default = 0, null = True)
     created = models.DateTimeField(auto_now_add = True, null = True)
 
     def __str__(self):
         return self.name
     
 
+class LikeSpot(models.Model):
+    spot_id = models.CharField(max_length = 200)
+    username = models.CharField(max_length = 200)
 
+    def __str__(self):
+        return self.username

@@ -23,16 +23,6 @@
 <hr>
 </div>
 
-<div class="index-spots-container">
-  {% for spot in spots %}
-  <div>
-  <span><img class="index-spot-owner-avatar" src="{{ spot.owner.avatar.url }}"></span>
-  <span><a href="#">{{ spot.owner.name }}</a></span>
-  <img class="index-spots-img" src="{{ spot.image.url }}" >
-  <a class="index-spots-name" href="{% url 'skatebooks:spot' spot.id %}">{{ spot.name }}</a>
-  <a class="index-spots-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
-  </div>
-  {% endfor %}
-</div>
+{% include 'skatebooks/components/spots.html' %}
 
 {% endblock content %}

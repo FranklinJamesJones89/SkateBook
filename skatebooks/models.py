@@ -46,3 +46,12 @@ class LikeSpot(models.Model):
 
     def __str__(self):
         return self.username
+
+class Comment(models.Model):
+    owner = models.ForeignKey(User, on_delete = models.CASCADE)
+    spot = models.ForeignKey(Spot, on_delete = models.CASCADE)
+    text = models.TextField()
+    created = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.text[:50]

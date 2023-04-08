@@ -117,9 +117,9 @@ i {
 }
 
 .index-spots-header h1 {
-	margin-left: 5%;
 	color: var(--white);
-	font-size: 3vw;
+	font-size: 22px;
+	text-align: center;
 }
 
 .index-spots-container {
@@ -205,6 +205,30 @@ i {
 	height: 400px;
 	border: 1px solid var(--grey);
 
+}
+
+.spot-comment-container {
+	margin-top: 2%;
+}
+
+.spot-comment-form input {
+	color: var(--grey);
+	border-radius: 12px;
+	border: 1px solid white;
+	margin-top: 5%;
+	outline: none;
+	padding: 2px;
+	font-size: 16px;
+}
+
+.spot-comment-text {
+	font-size: 14px;
+}
+
+.spot-comment-owner-avatar {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
 }
 
 .spot-details-container {

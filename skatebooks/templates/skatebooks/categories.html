@@ -3,10 +3,13 @@
 {% block content %}
 {% include 'skatebooks/components/forms/search_form.html' %}
 
-<h1>{{ category }}</h1>
 
-{% for spot in spots %}
-<h1>{{ spot.name }}</h1>
-{% endfor %}
+<!-- Spots -->
+<div class="index-spots-header">
+  <h1>{{ category }}</h1>
+  <hr>
+</div>
+
+{% include 'skatebooks/components/spots.html' %}
 
 {% endblock content %}

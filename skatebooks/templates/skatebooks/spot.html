@@ -16,7 +16,21 @@
     <a class="spot-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
     <p class="spot-description">{{ spot.description }}</p>
     <p>🚔 {{ spot.twelve }}</p>
-    <a href="/like_spot?spot_id={{ spot.id }}" class="like-btn"><i class="fa-regular fa-thumbs-up"> {{ spot.num_of_likes }}</i></a>
+    <a id="spot-like-btn" href="/like_spot?spot_id={{ spot.id }}" class="like-btn"><i class="fa-regular fa-thumbs-up"> {{ spot.num_of_likes }}</i></a>
+
+  <form class="spot-comment-form" action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="text" placeholder="leave a comment">
+  </form>
+
+  {% for comment in spot_comments %}
+  <div class="spot-comment-container">
+    <span><img class="spot-comment-owner-avatar" src="{{ comment.owner.avatar.url }}"alt=""></span>	  
+    <span style="color: grey;"class="spot-comment-text">{{ comment.owner.username }}: </span>
+    <span class="spot-comment-text">"{{ comment.text }}"</span>
+  </div>
+  {% endfor %}
+
   </div>
 
 </div>

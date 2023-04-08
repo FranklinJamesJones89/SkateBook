@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm
+from .forms import SignupForm, CommentForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import User, Spot, Category, LikeSpot
+from .models import User, Spot, Category, LikeSpot, Comment
 
 # Create your views here.
 
@@ -26,9 +26,24 @@ def categories(request, pk):
 
 def spot(request, pk):
     spot = Spot.objects.get(id = pk)
+    spot_comments = spot.comment_set.all()
     categories = Category.objects.all()
 
-    context = {'spot': spot, 'categories': categories}
+    form = CommentForm()
+
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            form = CommentForm(request.POST)
+
+            if form.is_valid():
+                comment = form.save(commit = False)
+                comment.owner = request.user
+                comment.spot = spot
+                form.save()
+        else:
+            return redirect('skatebooks:signin')
+
+    context = {'spot': spot, 'categories': categories, 'form': form, 'spot_comments': spot_comments}
 
     return render(request, 'skatebooks/spot.html', context)
 

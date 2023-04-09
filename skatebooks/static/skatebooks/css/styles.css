@@ -22,11 +22,21 @@ i {
 
 /* Navbar */
 .navbar-img {
+	animation: spin 5s infinite linear;
 	width: 50px;
 	height: auto;
 	background-color: var(--white);
 	border-radius: 50%;
 	margin-right: 2%;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+	transform: rotate(360deg);
+	}
 }
 
 .navbar-brand {
@@ -262,6 +272,22 @@ i {
 	outline: none;
 }
 
+.comment-delete-paragraph {
+	color: var(--white);
+}
+
+.comment-delete-btn {
+	outline: none;
+	color: var(--white);
+	border-radius: 12px;
+	margin-left: 1%;
+}
+
+.comment-back-link {
+	color: var(--white);
+}
+
+
 /* signup */
 .signup-form-wrapper {
 	display: block;
@@ -317,3 +343,4 @@ i {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
+

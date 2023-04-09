@@ -1,0 +1,12 @@
+{% extends 'skatebooks/components/base.html' %}
+
+{% block content %}
+
+<form class="comment-delete-form" action="" method="POST">
+	{% csrf_token %}
+	<p class="comment-delete-paragraph">Are you sure  you want to delete {{ obj }}?</p>
+	<a class="comment-back-link" href="{{ request.HTTP.META.REFERER }}">back</a>
+	<button class="comment-delete-btn" type="submit" value="confirm">Submit</button>
+</form>
+
+{% endblock content %}

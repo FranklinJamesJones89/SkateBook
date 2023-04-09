@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import SignupForm, CommentForm
 from django.contrib.auth import authenticate, login, logout
@@ -122,6 +123,17 @@ def like_spot(request):
         spot.save()
 
         return redirect('skatebooks:spot', spot_id)
-        
-        
-   
+
+@login_required(login_url = 'skatebooks:signin')
+def delete_comment(request, pk):
+    comment = Comment.objects.get(id = pk)
+
+    if request.user != comment.owner:
+        return HttpResponse('You are not the owner')
+    
+    if request.method == 'POST':
+        comment.delete()
+       
+        return redirect('skatebooks:index')
+
+    return render(request, 'skatebooks/components/forms/delete_comment.html', {'obj': comment})

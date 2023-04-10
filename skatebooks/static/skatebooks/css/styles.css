@@ -335,6 +335,19 @@ i {
 	text-decoration: none;
 }
 
+/* Profile */
+.profile-details-container {
+	text-align: center;
+	margin: 0 auto;
+	width: 20%;
+}
+
+.profile-details-container img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
 /* footer */
 .footer-wrapper {
 	margin-top: 10%;

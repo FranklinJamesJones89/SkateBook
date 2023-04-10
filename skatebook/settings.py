@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +37,7 @@ AUTH_USER_MODEL = 'skatebooks.User'
 
 INSTALLED_APPS = [
     'skatebooks',
+    'cloudinary',
     'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +56,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Cloudinary
+cloudinary.config(
+    cloud_name = 'dzn4wanoj',
+    api_key = '393939343296874',
+    api_secret = 'DlCSHmSorGU7byAng0ofDgIGqXc'
+)
 
 ROOT_URLCONF = 'skatebook.urls'
 

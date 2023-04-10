@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class User(AbstractUser):
     username = models.CharField(max_length = 200)
     email = models.EmailField(unique = True)
     hometown = models.CharField(max_length = 500, blank = True, null = True)
-    avatar = models.ImageField(default = 'blank-profile-picture.png', blank = True, null = True)
+    avatar = CloudinaryField(default = 'avatar', blank = True, null = True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -32,7 +33,7 @@ class Spot(models.Model):
     state = models.CharField(max_length = 500)
     zipcode = models.CharField(max_length = 500)
     twelve = models.CharField(max_length = 500)
-    image = models.ImageField()
+    image = CloudinaryField()
     num_of_likes = models.IntegerField(default = 0, null = True)
     created = models.DateTimeField(auto_now_add = True, null = True)
 

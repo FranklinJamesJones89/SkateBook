@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import SignupForm, CommentForm
@@ -9,7 +10,19 @@ from .models import User, Spot, Category, LikeSpot, Comment
 # Create your views here.
 
 def index(request):
-    spots = Spot.objects.all()
+    # Queries
+    if 'q' in request.GET:
+        q = request.GET['q']
+        multiple_q = Q(
+                Q(city__icontains = q) | 
+                Q(state__icontains = q) |
+                Q(zipcode__icontains = q) |
+                Q(name__icontains = q) 
+                )
+        spots = Spot.objects.filter(multiple_q)
+    else:
+        spots = Spot.objects.all()
+
     categories = Category.objects.all()
 
     context = {'spots': spots, 'categories': categories}

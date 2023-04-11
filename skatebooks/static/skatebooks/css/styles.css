@@ -4,10 +4,6 @@
 	--grey: #808080;
 }
 
-* {
- background-color: var(--black);	
-}
-
 /* Font Awesome Icons */
 i {
 	color: var(--white);
@@ -218,6 +214,7 @@ i {
 }
 
 .spot-comment-container {
+	display: none;
 	margin-top: 2%;
 }
 

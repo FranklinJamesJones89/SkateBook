@@ -23,6 +23,8 @@
     <input type="text" name="text" placeholder="leave a comment">
   </form>
 
+  <button class="show-comments-btn">view comments</button>
+
   {% for comment in spot_comments %}
   <div class="spot-comment-container">
     <span><img class="spot-comment-owner-avatar" src="{{ comment.owner.avatar.url }}"alt=""></span>	  

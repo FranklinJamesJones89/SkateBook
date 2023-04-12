@@ -29,6 +29,13 @@ def index(request):
 
     return render(request, 'skatebooks/index.html', context)
 
+def profile(request, pk):
+    user = User.objects.get(id = pk)
+
+    context = {'user': user}
+
+    return render(request, 'skatebooks/profile.html', context)
+
 def categories(request, pk):
     categories = Category.objects.all()
     category = Category.objects.get(id = pk)

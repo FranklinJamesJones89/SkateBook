@@ -5,6 +5,7 @@ app_name = 'skatebooks'
 
 urlpatterns = [
     path('', views.index, name = 'index'),
+    path('profile/<str:pk>/', views.profile, name = 'profile'),
     path('signup', views.signup, name = 'signup'),
     path('signin', views.signin, name = 'signin'),
     path('signout', views.signout, name = 'signout'),

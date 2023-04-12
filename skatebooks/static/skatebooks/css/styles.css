@@ -289,7 +289,7 @@ i {
 .signup-form-wrapper {
 	display: block;
 	margin: 5% auto 10%;
-	color: white;
+	color: black;
 }
 
 @media (max-width: 1000px) {
@@ -302,7 +302,7 @@ i {
 	display: block;
 	margin: 1% auto;
 	border-radius: 12px;
-	color: white;
+	color: black;
 	padding: 5px;
 }
 

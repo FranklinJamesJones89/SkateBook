@@ -32,6 +32,8 @@ class Spot(models.Model):
     city = models.CharField(max_length = 500)
     state = models.CharField(max_length = 500)
     zipcode = models.CharField(max_length = 500)
+    lat = models.FloatField(blank = True, null = True)
+    long = models.FloatField(blank = True, null = True)
     twelve = models.CharField(max_length = 500)
     image = CloudinaryField()
     num_of_likes = models.IntegerField(default = 0, null = True)

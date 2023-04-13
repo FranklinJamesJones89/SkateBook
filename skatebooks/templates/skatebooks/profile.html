@@ -1,5 +1,26 @@
 {% extends 'skatebooks/components/base.html' %}
 
 {% block content %}
-<h1>{{ user.name }}</h1>
+<div class="profile-details-container">
+  <img class="profile-avatar" src={{ user.avatar.url }}>
+  <h1>{{ user.name }}</h1>
+  <p>{{ user.hometown }}</p>
+</div>
+
+<div class="profile-icons-container">
+  <a href="#"><i class="fa-solid fa-house"></i></a>
+  <a href="#"><i class="fa fa-binoculars fontawesome-icon"></i></a>
+  <a href="#"><i class="fa  fa-gear"></i></a>
+</div>
+
+<!-- Spots -->
+<div class="index-spots-container">
+  {% for spot in spots %}
+  <div>
+  <img class="index-spots-img" src="{{ spot.image.url }}" >
+  <a class="index-spots-name" href="{% url 'skatebooks:spot' spot.id %}">{{ spot.name }}</a>
+  <a class="index-spots-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock content %}

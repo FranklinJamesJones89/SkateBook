@@ -48,6 +48,7 @@ i {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
+	border: 1px solid grey;
 }
 
 .dropdown-menu {
@@ -172,6 +173,7 @@ i {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
+	border: 2px solid gray;
 }
 
 .index-spots-name {
@@ -335,7 +337,7 @@ i {
 /* Profile */
 .profile-details-container {
 	text-align: center;
-	margin: 0 auto;
+	margin: 5% auto;
 	width: 20%;
 }
 
@@ -343,6 +345,14 @@ i {
 	width: 200px;
 	height: 200px;
 	border-radius: 50%;
+	border: 4px solid grey;
+	margin-bottom: 5%;
+}
+
+.profile-icons-container {
+	display: block;
+	word-spacing: 35px;
+	text-align: center;
 }
 
 /* footer */

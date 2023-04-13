@@ -31,8 +31,9 @@ def index(request):
 
 def profile(request, pk):
     user = User.objects.get(id = pk)
+    spots = user.spot_set.all()
 
-    context = {'user': user}
+    context = {'user': user, 'spots': spots}
 
     return render(request, 'skatebooks/profile.html', context)
 

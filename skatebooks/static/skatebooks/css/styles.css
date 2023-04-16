@@ -341,6 +341,10 @@ i {
 	width: 20%;
 }
 
+.profile-details-container h1 {
+	color: var(--white);
+}
+
 .profile-details-container img {
 	width: 200px;
 	height: 200px;

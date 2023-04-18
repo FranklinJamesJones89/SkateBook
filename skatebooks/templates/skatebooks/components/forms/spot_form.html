@@ -1,6 +1,93 @@
 {% extends 'skatebooks/components/base.html' %}
 
 {% block content %}
-<h1>{{ user.username }}</h1>
+ <form class="spot-form" action="" method="POST" enctype="multipart/form-data">
+   <input type="hidden" name="csrfmiddlewaretoken" value="R2hS7TGaUVpO1lVTruMhN4gWzvN9t0qdMG61kvGp42Pl6QeXXtAmVAwOo07B6Xm8">
+   <p>
+   <p class="spot-form-category">Category</p>
+    <select placeholder="category" name="category" required id="id_category">
+  <option value="" selected>---------</option>
+
+  <option value="1">Stairs</option>
+
+  <option value="2">Ledges</option>
+
+  <option value="3">Handrails</option>
+
+  <option value="4">Gaps</option>
+
+  <option value="5">Hubbas</option>
+
+  <option value="6">Banks</option>
+
+  <option value="7">Hills</option>
+
+</select>
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="Name" type="text" name="name" maxlength="500" required id="id_name">
+
+
+  </p>
+
+
+  <p>
+    <textarea placeholder="Description" name="description" cols="40" rows="10" required id="id_description">
+</textarea>
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="Street" type="text" name="street" maxlength="500" required id="id_street">
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="City" type="text" name="city" maxlength="500" required id="id_city">
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="state" type="text" name="state" maxlength="500" required id="id_state">
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="Zipcode" type="text" name="zipcode" maxlength="500" required id="id_zipcode">
+
+
+  </p>
+
+
+  <p>
+    <input placeholder="Twelve" type="text" name="twelve" maxlength="500" required id="id_twelve">
+
+
+  </p>
+
+
+  <p>
+    <input type="file" name="image" required id="id_image">
+
+
+
+
+  </p>
+   <button type="submit" value="submit">Submit</button>
+  </form>
+
+
 
 {% endblock content %}

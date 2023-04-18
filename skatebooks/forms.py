@@ -17,4 +17,4 @@ class SpotForm(ModelForm):
     class Meta:
         model = Spot
         fields = '__all__'
-        exclude = ['owner']
+        exclude = ['owner', 'num_of_likes']

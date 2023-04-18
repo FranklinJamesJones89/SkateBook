@@ -364,6 +364,21 @@ i {
 	color: var(--white);
 }
 
+/* Spot Form */
+.spot-form {
+	display: block;
+	margin:0 auto;
+	width: 30%;
+}
+
+.spot-form-category {
+	color: var(--white);
+}
+
+.spot-form input {
+	border-radius: 12px;
+}
+
 /* footer */
 .footer-wrapper {
 	margin-top: 10%;

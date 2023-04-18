@@ -162,4 +162,28 @@ def delete_comment(request, pk):
     return render(request, 'skatebooks/components/forms/delete_comment.html', {'obj': comment})
 
 def spot_form(request):
-    return render(request, 'skatebooks/spot_form.html')
+    form = SpotForm()
+
+    if request.method == 'POST':
+        form = SpotForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            print('valid')
+            spot = form.save(commit = False)
+            spot.owner = request.user
+            form.save()
+
+            return redirect('skatebooks:index')
+        else:
+            print('form not valid')
+    
+    context = {'form': form}
+
+    return render(request, 'skatebooks/components/forms/spot_form.html', context)
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-from .models import User, Comment
+from .models import User, Comment, Spot
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
@@ -12,3 +12,9 @@ class CommentForm(ModelForm):
         model = Comment
         fields= '__all__'
         exclude = ['owner', 'spot']
+
+class SpotForm(ModelForm):
+    class Meta:
+        model = Spot
+        fields = '__all__'
+        exclude = ['owner']

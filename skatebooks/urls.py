@@ -12,5 +12,6 @@ urlpatterns = [
     path('categories/<str:pk>/', views.categories, name = 'categories'),
     path('spot/<str:pk>/', views.spot, name = 'spot'),
     path('like_spot', views.like_spot, name = 'like_spot'),
-    path('delete_comment/<str:pk>/', views.delete_comment, name = 'delete_comment')
+    path('delete_comment/<str:pk>/', views.delete_comment, name = 'delete_comment'),
+    path('spot_form', views.spot_form, name = 'spot_form')
 ]

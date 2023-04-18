@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, CommentForm
+from .forms import SignupForm, CommentForm, SpotForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import User, Spot, Category, LikeSpot, Comment
@@ -32,6 +32,8 @@ def index(request):
 def profile(request, pk):
     user = User.objects.get(id = pk)
     spots = user.spot_set.all()
+
+    form = SpotForm()
 
     context = {'user': user, 'spots': spots}
 
@@ -158,3 +160,6 @@ def delete_comment(request, pk):
         return redirect('skatebooks:index')
 
     return render(request, 'skatebooks/components/forms/delete_comment.html', {'obj': comment})
+
+def spot_form(request):
+    return render(request, 'skatebooks/spot_form.html')

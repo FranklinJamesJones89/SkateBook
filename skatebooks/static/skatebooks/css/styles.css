@@ -216,7 +216,6 @@ i {
 }
 
 .spot-comment-container {
-	display: none;
 	margin-top: 2%;
 }
 
@@ -357,6 +356,12 @@ i {
 	display: block;
 	word-spacing: 35px;
 	text-align: center;
+}
+
+.profile-hr {
+	margin: 2% auto;
+	width: 20%;
+	color: var(--white);
 }
 
 /* footer */

@@ -161,6 +161,7 @@ def delete_comment(request, pk):
 
     return render(request, 'skatebooks/components/forms/delete_comment.html', {'obj': comment})
 
+@login_required(login_url = 'skatebooks:signin')
 def spot_form(request):
     form = SpotForm()
 
@@ -173,7 +174,7 @@ def spot_form(request):
             spot.owner = request.user
             form.save()
 
-            return redirect('skatebooks:index')
+            return redirect('skatebooks:spot', pk=spot.id)
         else:
             print('form not valid')
     
@@ -181,9 +182,5 @@ def spot_form(request):
 
     return render(request, 'skatebooks/components/forms/spot_form.html', context)
 
-
-
-
-
-
-
+def delete_spot(request, pk):
+    pass

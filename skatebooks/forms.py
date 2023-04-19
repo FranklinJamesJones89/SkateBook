@@ -16,5 +16,5 @@ class CommentForm(ModelForm):
 class SpotForm(ModelForm):
     class Meta:
         model = Spot
-        fields = '__all__'
-        exclude = ['owner', 'num_of_likes']
+        fields = ('category', 'name', 'description', 'street', 'city', 'state', 'zipcode', 'twelve', 'image', )
+        exclude = ['owner', 'num_of_likes', 'created']

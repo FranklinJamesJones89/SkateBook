@@ -1,11 +1,14 @@
 {% extends 'skatebooks/components/base.html' %}
 
 {% block content %}
- <form class="spot-form" action="" method="POST" enctype="multipart/form-data">
-   <input type="hidden" name="csrfmiddlewaretoken" value="R2hS7TGaUVpO1lVTruMhN4gWzvN9t0qdMG61kvGp42Pl6QeXXtAmVAwOo07B6Xm8">
-   <p>
-   <p class="spot-form-category">Category</p>
-    <select placeholder="category" name="category" required id="id_category">
+<h1 class="spot-form-header">Post a Spot</h1>
+
+<form class="spot-form" action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="hidden" name="csrfmiddlewaretoken" value="N9IRLExuVAQAfl7vUq6Vtqjqo8o8H7mTAdFiS5GllcZtSuEmHVS3Op45wcpIqRMU">
+  <p>
+    <label class="spot-form-category" for="id_category">Category:</label>
+    <select name="category" required id="id_category">
   <option value="" selected>---------</option>
 
   <option value="1">Stairs</option>
@@ -23,71 +26,70 @@
   <option value="7">Hills</option>
 
 </select>
-
-
+    
+    
   </p>
 
-
+  
   <p>
-    <input placeholder="Name" type="text" name="name" maxlength="500" required id="id_name">
-
-
+    <input placeholder="name" type="text" name="name" maxlength="500" required id="id_name">
+    
+    
   </p>
 
-
+  
   <p>
-    <textarea placeholder="Description" name="description" cols="40" rows="10" required id="id_description">
+    <textarea placeholder="description" name="description" cols="40" rows="10" required id="id_description">
 </textarea>
-
-
+    
+    
   </p>
 
-
+  
   <p>
-    <input placeholder="Street" type="text" name="street" maxlength="500" required id="id_street">
-
-
+    <input placeholder="street" type="text" name="street" maxlength="500" required id="id_street">
+    
+    
   </p>
 
-
+  
   <p>
-    <input placeholder="City" type="text" name="city" maxlength="500" required id="id_city">
-
-
+    <input placeholder="city" type="text" name="city" maxlength="500" required id="id_city">
+    
+    
   </p>
 
-
+  
   <p>
     <input placeholder="state" type="text" name="state" maxlength="500" required id="id_state">
-
-
+    
+    
   </p>
 
-
+  
   <p>
-    <input placeholder="Zipcode" type="text" name="zipcode" maxlength="500" required id="id_zipcode">
-
-
+    <input placeholder="zipcode" type="text" name="zipcode" maxlength="500" required id="id_zipcode">
+    
+    
   </p>
 
-
+  
   <p>
-    <input placeholder="Twelve" type="text" name="twelve" maxlength="500" required id="id_twelve">
-
-
+    <input placeholder="twelve" type="text" name="twelve" maxlength="500" required id="id_twelve">
+    
+    
   </p>
 
-
+  
   <p>
-    <input type="file" name="image" required id="id_image">
-
-
-
-
-  </p>
-   <button type="submit" value="submit">Submit</button>
-  </form>
-
+    <input class="spot-form-img-btn" placeholder="image" type="file" name="image" required id="id_image">
+    
+    
+      
+    
+  </p> 
+  <button type="submit" value="submit">Post</button>
+ </form>
 
 
 {% endblock content %}

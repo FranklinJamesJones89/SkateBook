@@ -15,6 +15,9 @@
 <hr class="profile-hr">
 
 <!-- Spots -->
+{% if request.user == user %}
+<p class="profile-spots-header">Your Spots</p>
+{% endif %}
 <div class="index-spots-container">
   {% for spot in spots %}
   <div>

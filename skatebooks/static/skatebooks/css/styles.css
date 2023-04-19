@@ -340,6 +340,12 @@ i {
 	width: 20%;
 }
 
+.profile-spots-header {
+	color: white;
+	font-size: 1.5rem;
+	margin-left: 5%;
+}
+
 .profile-details-container h1 {
 	color: var(--white);
 }
@@ -366,9 +372,12 @@ i {
 
 /* Spot Form */
 .spot-form {
-	display: block;
-	margin:0 auto;
-	width: 30%;
+	margin-top: 5%;
+}
+
+.spot-form-header {
+	margin-top: 2%;
+	color: var(--white);
 }
 
 .spot-form-category {
@@ -376,7 +385,38 @@ i {
 }
 
 .spot-form input {
+	background-color: var(--black);
 	border-radius: 12px;
+	outline: none;
+	color: var(--white);
+}
+
+.spot-form textarea {
+	background-color: var(--black);
+	border-radius: 12px;
+	outline: none;
+	color: var(--white);
+}
+
+.spot-form select {
+	background-color: var(--black);
+	color: var(--white);
+	border-radius: 12px;
+}
+
+.spot-form button {
+	border-radius: 12px;
+	color: var(--white);
+	background-color: var(--black);
+	padding: 5px;
+
+}
+
+.spot-form-img-btn {
+	background-color: var(--black);
+	color: var(--white);
+	border-radius: 12px;
+	outline: none;
 }
 
 /* footer */

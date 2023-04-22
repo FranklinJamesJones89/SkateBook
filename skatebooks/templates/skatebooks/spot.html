@@ -17,6 +17,7 @@
     <p class="spot-description">{{ spot.description }}</p>
     <p>🚔 {{ spot.twelve }}</p>
     <a id="spot-like-btn" href="/like_spot?spot_id={{ spot.id }}" class="like-btn"><i class="fa-regular fa-thumbs-up"> {{ spot.num_of_likes }}</i></a>
+    <a href="{% url 'skatebooks:delete_spot' spot.id %}"><i class="fa fa-trash"></i></a>
 
   <form class="spot-comment-form" action="" method="POST">
     {% csrf_token %}

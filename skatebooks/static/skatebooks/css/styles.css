@@ -358,6 +358,12 @@ i {
 	margin-bottom: 5%;
 }
 
+@media (max-width: 1000px) {
+	.profile-details-container img {
+		margin-left: -50%;
+	}
+} 
+
 .profile-icons-container {
 	display: block;
 	word-spacing: 35px;

@@ -1,0 +1,11 @@
+{% extends 'skatebooks/components/base.html' %}
+
+{% block content %}
+<form>
+  {% csrf_token %}
+  <p style="color: white;">Are you sure you want to delete "{{ obj }}"?</p>
+  <a style="color:white;" href="{{ request.META.HTTP_REFERER }}">return</a>
+  <button style="border-radius: 12px; background-color: black; color:white;" type="submit" value="submit">Delete</button>
+</form>
+
+{% endblock content %}

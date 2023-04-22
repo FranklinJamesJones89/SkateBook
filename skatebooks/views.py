@@ -183,4 +183,11 @@ def spot_form(request):
     return render(request, 'skatebooks/components/forms/spot_form.html', context)
 
 def delete_spot(request, pk):
-    pass
+    spot = Spot.objects.get(id = pk)
+
+    if request.method == 'POST':
+        spot.delete()
+
+        return redirect('skatebooks:index')
+
+    return render(request, 'skatebooks/components/forms/delete_spot.html', {'obj': spot})

@@ -22,7 +22,7 @@
           </a>
           <ul style="background-color: var(--black);"class="dropdown-menu">
 		  <li><a class="dropdown-item" href="{% url 'skatebooks:profile' user.id %}">your profile</a></li>
-            <li><a class="dropdown-item" href="#">your settings</a></li>
+		  <li><a class="dropdown-item" href="{% url 'skatebooks:settings' %}">your settings</a></li>
             <li><hr class="dropdown-divider"></li>
 	    <li><a class="dropdown-item" href="{% url 'skatebooks:signout' %}">sign out</a></li>
           </ul>

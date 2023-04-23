@@ -1,0 +1,31 @@
+{% extends 'skatebooks/components/base.html' %}
+{% load static %}
+
+{% block content %}<form>
+	<h1 class="text-light mt-5 mb-5">Settings</h1>
+	<img class="mb-5 img-thumbnail img-responsive" style="width:20%;"src={{ user.avatar.url }}>
+	<form class="" action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<input type="hidden" name="csrfmiddlewaretoken" value="No30UWBDcTIlZmsbFf3MGyXOwWk2kFuLMFkXG7XDhef5TfQ1CPHB2CAIQZ07aT6Z">
+
+	<p>
+    <input class="rounded-pill fs-10 px-2 bg-black text-light" type="text" placeholder="name" name="name" maxlength="200" required id="id_name">
+  </p>
+  
+  <p>
+    <input class="rounded-pill px-2 bg-black text-light" type="text" placeholder="username" name="username" maxlength="200" required id="id_username">
+  </p>
+
+  
+  <p>
+    <input class="rounded-pill px-2 bg-black text-light" type="text" placeholder="hometown" name="hometown" maxlength="500" id="id_hometown">
+  </p>
+
+  <p>
+    <input type="file" name="avatar" id="id_avatar">
+  </p>
+
+	<button class="bg-black rounded-pill text-light px-2">Save</button>
+</form>
+
+{% endblock content %}

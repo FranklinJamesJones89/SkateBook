@@ -18,3 +18,9 @@ class SpotForm(ModelForm):
         model = Spot
         fields = ('category', 'name', 'description', 'street', 'city', 'state', 'zipcode', 'twelve', 'image', )
         exclude = ['owner', 'num_of_likes', 'created']
+
+class UserForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['name', 'username', 'hometown', 'avatar']
+        

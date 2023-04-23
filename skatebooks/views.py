@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, CommentForm, SpotForm
+from .forms import SignupForm, CommentForm, SpotForm, UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import User, Spot, Category, LikeSpot, Comment
@@ -191,3 +191,11 @@ def delete_spot(request, pk):
         return redirect('skatebooks:index')
 
     return render(request, 'skatebooks/components/forms/delete_spot.html', {'obj': spot})
+
+@login_required(login_url = 'skatebooks:signin')
+def settings(request):
+    form = UserForm()
+    
+    context = {'form': form} 
+
+    return render(request, 'skatebooks/components/forms/settings.html', context)

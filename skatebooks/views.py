@@ -194,7 +194,17 @@ def delete_spot(request, pk):
 
 @login_required(login_url = 'skatebooks:signin')
 def settings(request):
-    form = UserForm()
+    user = request.user
+    form = UserForm(instance = user)
+
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance = user)
+        
+        if form.is_valid():
+            print('valid')
+            form.save()
+
+            return redirect('skatebooks:profile', pk = user.id)
     
     context = {'form': form} 
 

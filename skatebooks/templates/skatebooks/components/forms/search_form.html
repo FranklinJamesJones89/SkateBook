@@ -1,9 +1,9 @@
 <!-- Categories -->
-<div class="index-category-container">
+<div style="margin-top: -5%"class="index-category-container">
 
 <ul class="index-list-container">
 {% for category in categories %}
-<li><a href="{% url 'skatebooks:categories' category.id %}">{{ category.name }}</a></li>
+<li><a class="text-decoration-underline"href="{% url 'skatebooks:categories' category.id %}">{{ category.name }}</a></li>
 {% endfor %}
 </ul>
 

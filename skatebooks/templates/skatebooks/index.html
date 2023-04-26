@@ -4,7 +4,10 @@
 {% block content %}
 
 <!-- Header -->
-<h1 class="index-header">The World's Best spot finder.</h1>
+<div class="mt-5 ms-5">
+  <span class="bg-light px-3 fs-1 border border-black fw-bold text-black"style="border: 1px solid white">Welcome to</span>
+  <span class="bg-black px-3 border border-light fs-1 fw-bold text-white">Skatebook</span>
+</div>
 
 <div class="index-header-container">
   <img class="index-header-img" src="{% static 'skatebooks/img/skate1.jpg' %}" alt="skateboarding">
@@ -14,6 +17,9 @@
   <img class="index-header-img" src="{% static 'skatebooks/img/skate5.jpg' %}" alt="skateboarding">
   <img class="index-header-img" src="{% static 'skatebooks/img/skate6.jpg' %}" alt="skateboarding">
 </div>
+
+<h1 class="text-light fs-3 mt-5 text-center">The World's Best Spot Finder</h1>
+<p class="text-center text-danger"><strong class="text-danger fs-1">{{ spots.count }}</strong> spots and counting...</p>
 
 {% include 'skatebooks/components/forms/search_form.html' %}
 

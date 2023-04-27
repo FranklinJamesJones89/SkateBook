@@ -16,7 +16,7 @@ class CommentForm(ModelForm):
 class SpotForm(ModelForm):
     class Meta:
         model = Spot
-        exclude = ['owner', 'num_of_likes', 'created']
+        exclude = ['owner']
 
 class UserForm(ModelForm):
     class Meta:

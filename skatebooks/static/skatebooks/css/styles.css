@@ -64,8 +64,23 @@ i {
 }
 
 .index-header-container {
-	margin: 1% auto;
+	margin: 10% auto;
 	width: 90%;
+}
+
+@media (max-width: 1000px) {
+	.index-header-container {
+		margin:10% auto;
+		width: 50%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.double-header {
+		display: block;
+		margin: 0 auto;
+		width: 50%;
+	}
 }
 
 .index-header-img {

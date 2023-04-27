@@ -15,5 +15,6 @@ urlpatterns = [
     path('delete_comment/<str:pk>/', views.delete_comment, name = 'delete_comment'),
     path('spot_form', views.spot_form, name = 'spot_form'),
     path('delete_spot/<str:pk>/', views.delete_spot, name = 'delete_spot'),
-    path('settings/', views.settings, name = 'settings')
+    path('settings/', views.settings, name = 'settings'),
+    path('about/', views.about, name='about')
 ]

@@ -6,7 +6,7 @@
 	<span><a class="text-light fw-bold" href="{% url 'skatebooks:profile' spot.owner.id %}">{{ spot.owner.name }}</a></span>
   <img class="rounded index-spots-img" src="{{ spot.image.url }}" >
   <a class="text-light fw-bold index-spots-name" href="{% url 'skatebooks:spot' spot.id %}">{{ spot.name }}</a>
-  <a class="text-light fw-bold index-spots-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
+  <a class="text-light fw-bold index-spots-location" href="https://www.google.com/maps/place/{{ spot.street }} {{ spot.city }} {{ spot.state }} {{ spot.zipcode }}" target="blank">{{ spot.street }} {{ spot.city }}, {{ spot.state }} {{ spot.zipcode }}</a>
   </div>
   {% endfor %}
 </div>

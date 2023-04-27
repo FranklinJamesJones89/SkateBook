@@ -209,3 +209,6 @@ def settings(request):
     context = {'form': form} 
 
     return render(request, 'skatebooks/components/forms/settings.html', context)
+
+def about(request):
+    return render(request, 'skatebooks/about.html')
